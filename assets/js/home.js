@@ -1,37 +1,27 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const videoList = document.getElementById("video-list");
+    const latestVideos = document.getElementById("latest-videos");
+    const trendingVideos = document.getElementById("trending-videos");
 
-    let videos = JSON.parse(localStorage.getItem("videos")) || [];
+    const dummyVideos = [
+        { title: "Video 1", views: 100, thumbnail: "placeholder.jpg" },
+        { title: "Video 2", views: 200, thumbnail: "placeholder.jpg" },
+        { title: "Video 3", views: 300, thumbnail: "placeholder.jpg" },
+        { title: "Video 4", views: 400, thumbnail: "placeholder.jpg" }
+    ];
 
-    // Jika belum ada video, tampilkan placeholder
-    if (videos.length === 0) {
-        for (let i = 0; i < 6; i++) {
-            let placeholder = `
-                <div class="video-item">
-                    <img src="assets/img/placeholder.jpg" alt="Video Kosong">
-                    <div class="video-info">
-                        <h3>Belum ada video</h3>
-                        <p class="views">Ditonton: 0 kali</p>
-                    </div>
-                </div>
-            `;
-            videoList.innerHTML += placeholder;
-        }
-    } else {
-        // Tampilkan video yang tersedia
-        videoList.innerHTML = "";
-        videos.forEach(video => {
-            let videoElement = `
+    function renderVideos(container, videos, count) {
+        container.innerHTML = "";
+        videos.slice(0, count).forEach(video => {
+            container.innerHTML += `
                 <div class="video-item">
                     <img src="${video.thumbnail}" alt="${video.title}">
-                    <div class="video-info">
-                        <h3>${video.title}</h3>
-                        <p class="views">Ditonton: ${video.views} kali</p>
-                        <a href="${video.url}" target="_blank">Tonton</a>
-                    </div>
+                    <h3>${video.title}</h3>
+                    <p>Ditonton: ${video.views} kali</p>
                 </div>
             `;
-            videoList.innerHTML += videoElement;
         });
     }
+
+    renderVideos(latestVideos, dummyVideos, 12);
+    renderVideos(trendingVideos, dummyVideos, 6);
 });
