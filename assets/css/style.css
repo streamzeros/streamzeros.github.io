@@ -26,26 +26,42 @@ body {
 .video-item img {
     width: 100%;
     border-radius: 5px;
-}
 .pagination {
     text-align: center;
     margin-top: 10px;
 }
-.pagination a {
-    color: orange;
-    margin: 0 5px;
-    text-decoration: none;
+
+.page-btn {
+    background: #222;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin: 2px;
+    cursor: pointer;
+    border-radius: 5px;
 }
-.pagination span {
-    font-weight: bold;
+
+.page-btn.active {
+    background: orange;
 }
-.categories {
+
+.page-btn:hover {
+    background: #444;
+}
+
+.category-list {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
 }
-.category {
-    background: #333;
-    padding: 5px 10px;
+
+.category-item {
+    background: #222;
+    padding: 8px 12px;
     border-radius: 5px;
+    color: white;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
