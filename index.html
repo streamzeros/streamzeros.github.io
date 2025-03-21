@@ -12,12 +12,24 @@
         <div class="logo">
             <i class="fa fa-play-circle"></i> StreamZeros
         </div>
-        <div class="menu">☰</div>
+        <div class="menu" onclick="toggleMenu()">☰</div>
     </header>
 
-    <div class="search-container">
-        <input type="text" id="search" placeholder="Search...">
-        <button id="search-btn"><i class="fa fa-search"></i></button>
+    <!-- Sidebar Menu -->
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Bokep Viral</a></li>
+            <li><a href="#">Bokep Hijab</a></li>
+            <li><a href="#">Bokep JAV</a></li>
+            <li><a href="#">Bokep Indo</a></li>
+            <li>
+                <div class="search-container">
+                    <input type="text" id="search" placeholder="Search...">
+                    <button id="search-btn"><i class="fa fa-search"></i></button>
+                </div>
+            </li>
+        </ul>
     </div>
 
     <section class="video-section">
@@ -34,16 +46,6 @@
     <section class="video-section">
         <h2>Trending Minggu Ini</h2>
         <div class="video-list" id="trending-videos"></div>
-    </section>
-
-    <section class="video-section">
-        <h2>Categories</h2>
-        <div class="category-list">
-            <div class="category-item"><i class="fa fa-folder"></i> Hijab</div>
-            <div class="category-item"><i class="fa fa-folder"></i> Viral</div>
-            <div class="category-item"><i class="fa fa-folder"></i> JAV</div>
-            <div class="category-item"><i class="fa fa-folder"></i> Indo</div>
-        </div>
     </section>
 
     <script src="assets/js/home.js"></script>
