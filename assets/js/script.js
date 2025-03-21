@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("https://api.npoint.io/your-json-id") // Ganti dengan endpoint JSON
+    fetch("https://api.npoint.io/YOUR_JSON_ID") // Ganti dengan ID JSON dari nPoint.io
         .then(response => response.json())
         .then(data => {
             displayVideos(data.videos);
