@@ -85,14 +85,6 @@
             z-index: 900;
         }
 
-        /* Tampilkan Sidebar */
-        #sidebar.active {
-            left: 0;
-        }
-        .overlay.active {
-            display: block;
-        }
-
         /* Style Video Section */
         .video-section {
             padding: 20px;
@@ -106,10 +98,6 @@
         .video-item {
             background: #333;
             padding: 10px;
-            border-radius: 5px;
-        }
-        .video-item img {
-            width: 100%;
             border-radius: 5px;
         }
         .pagination {
@@ -133,11 +121,11 @@
         <div class="logo">
             <i class="fa fa-play-circle"></i> <span>StreamZeros</span>
         </div>
-        <div class="menu" id="menu-btn">☰</div>
+        <div class="menu">☰</div>
     </header>
 
     <nav id="sidebar">
-        <div class="close-btn" id="close-btn">&times;</div>
+        <div class="close-btn">&times;</div>
         <ul>
             <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
             <li><a href="#"><i class="fa fa-folder"></i> Bokep Viral</a></li>
@@ -146,16 +134,21 @@
             <li><a href="#"><i class="fa fa-folder"></i> Bokep Indo</a></li>
         </ul>
         <div class="search-container">
-            <input type="text" id="search" placeholder="Search...">
-            <button id="search-btn"><i class="fa fa-search"></i></button>
+            <input type="text" placeholder="Search...">
+            <button><i class="fa fa-search"></i></button>
         </div>
     </nav>
 
-    <div class="overlay" id="overlay"></div>
+    <div class="overlay"></div>
 
     <section class="video-section">
         <h2>Latest Videos</h2>
-        <div class="video-list" id="latest-videos"></div>
+        <div class="video-list">
+            <div class="video-item"><h3>Video 1</h3><p>Ditonton: 100 kali</p></div>
+            <div class="video-item"><h3>Video 2</h3><p>Ditonton: 200 kali</p></div>
+            <div class="video-item"><h3>Video 3</h3><p>Ditonton: 300 kali</p></div>
+            <div class="video-item"><h3>Video 4</h3><p>Ditonton: 400 kali</p></div>
+        </div>
         <div class="pagination">
             <button class="page-btn active">1</button>
             <button class="page-btn">2</button>
@@ -166,58 +159,15 @@
 
     <section class="video-section">
         <h2>Trending Minggu Ini</h2>
-        <div class="video-list" id="trending-videos"></div>
+        <div class="video-list">
+            <div class="video-item"><h3>Video 1</h3><p>Ditonton: 100 kali</p></div>
+            <div class="video-item"><h3>Video 2</h3><p>Ditonton: 200 kali</p></div>
+            <div class="video-item"><h3>Video 3</h3><p>Ditonton: 300 kali</p></div>
+            <div class="video-item"><h3>Video 4</h3><p>Ditonton: 400 kali</p></div>
+        </div>
     </section>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const menuBtn = document.getElementById("menu-btn");
-            const closeBtn = document.getElementById("close-btn");
-            const sidebar = document.getElementById("sidebar");
-            const overlay = document.getElementById("overlay");
-
-            menuBtn.addEventListener("click", () => {
-                sidebar.classList.add("active");
-                overlay.classList.add("active");
-            });
-
-            closeBtn.addEventListener("click", () => {
-                sidebar.classList.remove("active");
-                overlay.classList.remove("active");
-            });
-
-            overlay.addEventListener("click", () => {
-                sidebar.classList.remove("active");
-                overlay.classList.remove("active");
-            });
-
-            const latestVideos = document.getElementById("latest-videos");
-            const trendingVideos = document.getElementById("trending-videos");
-
-            const dummyVideos = [
-                { title: "Video 1", views: 100, thumbnail: "placeholder.jpg" },
-                { title: "Video 2", views: 200, thumbnail: "placeholder.jpg" },
-                { title: "Video 3", views: 300, thumbnail: "placeholder.jpg" },
-                { title: "Video 4", views: 400, thumbnail: "placeholder.jpg" }
-            ];
-
-            function renderVideos(container, videos, count) {
-                container.innerHTML = "";
-                videos.slice(0, count).forEach(video => {
-                    container.innerHTML += `
-                        <div class="video-item">
-                            <img src="${video.thumbnail}" alt="${video.title}">
-                            <h3>${video.title}</h3>
-                            <p>Ditonton: ${video.views} kali</p>
-                        </div>
-                    `;
-                });
-            }
-
-            renderVideos(latestVideos, dummyVideos, 12);
-            renderVideos(trendingVideos, dummyVideos, 6);
-        });
-    </script>
-
+    
+    <script src="/assets/js/home.js"></script>
+    
 </body>
 </html>
