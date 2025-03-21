@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tonton Video</title>
+    <title>StreamZeros - Watch</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -12,24 +12,12 @@
         <div class="menu">☰</div>
     </header>
 
-    <div class="video-container">
-        <h2 id="title"></h2>
-        <iframe id="player" frameborder="0" allowfullscreen></iframe>
-        <p id="views"></p>
-    </div>
+    <section class="video-container">
+        <iframe id="video-player" src="" frameborder="0" allowfullscreen></iframe>
+        <h2 id="video-title"></h2>
+        <p id="video-views"></p>
+    </section>
 
-    <script>
-        let urlParams = new URLSearchParams(window.location.search);
-        let videoId = urlParams.get("id");
-
-        fetch("https://api.npoint.io/your-json-id") // Ganti dengan endpoint JSON
-            .then(response => response.json())
-            .then(data => {
-                let video = data.videos.find(v => v.id == videoId);
-                document.getElementById("title").innerText = video.title;
-                document.getElementById("player").src = video.embed;
-                document.getElementById("views").innerText = video.views + " tayangan";
-            });
-    </script>
+    <script src="assets/js/watch.js"></script>
 </body>
 </html>
