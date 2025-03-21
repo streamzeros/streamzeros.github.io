@@ -1,28 +1,38 @@
-fetch('data/videos.json')
-    .then(response => response.json())
-    .then(data => {
-        let latestVideos = document.getElementById('latest-videos');
-        let trendingVideos = document.getElementById('trending-videos');
+document.addEventListener("DOMContentLoaded", function () {
+    fetch("https://api.npoint.io/your-json-id") // Ganti dengan endpoint JSON
+        .then(response => response.json())
+        .then(data => {
+            displayVideos(data.videos);
+        })
+        .catch(error => console.error("Gagal mengambil data!", error));
+});
 
-        data.videos.sort((a, b) => new Date(b.date) - new Date(a.date));
-        let latest = data.videos.slice(0, 6);
+function displayVideos(videos) {
+    let latestVideos = document.getElementById("latest-videos");
+    let trendingVideos = document.getElementById("trending-videos");
 
-        data.videos.sort((a, b) => b.views - a.views);
-        let trending = data.videos.slice(0, 6);
+    latestVideos.innerHTML = "";
+    trendingVideos.innerHTML = "";
 
-        latest.forEach(video => latestVideos.innerHTML += createVideoCard(video));
-        trending.forEach(video => trendingVideos.innerHTML += createVideoCard(video));
+    let sortedVideos = [...videos].sort((a, b) => new Date(b.date) - new Date(a.date)); // Urut berdasarkan terbaru
+    let trending = [...videos].sort((a, b) => b.views - a.views); // Urut berdasarkan tayangan
+
+    sortedVideos.slice(0, 4).forEach(video => {
+        latestVideos.innerHTML += createVideoCard(video);
     });
+
+    trending.slice(0, 4).forEach(video => {
+        trendingVideos.innerHTML += createVideoCard(video);
+    });
+}
 
 function createVideoCard(video) {
     return `
         <div class="video-card">
-            <a href="video.html?id=${video.id}">
+            <a href="watch.html?id=${video.id}">
                 <img src="${video.thumbnail}" alt="${video.title}">
-                <div class="video-info">
-                    <span>👁️ ${video.views}</span> | ⏱️ ${video.duration} | 👍 ${video.likes}%
-                </div>
                 <h3>${video.title}</h3>
+                <p>${video.views} tayangan</p>
             </a>
         </div>
     `;
