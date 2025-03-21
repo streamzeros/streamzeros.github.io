@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tonton Video</title>
+    <style>
+        body { background: #111; color: #fff; text-align: center; padding: 20px; }
+        iframe { width: 100%; height: 300px; }
+    </style>
+</head>
+<body>
+    <h2 id="title"></h2>
+    <iframe id="player" frameborder="0" allowfullscreen></iframe>
+
+    <script>
+        let urlParams = new URLSearchParams(window.location.search);
+        let videoId = urlParams.get("id");
+
+        fetch('https://api.npoint.io/your-json-id') // Ganti dengan endpoint JSON
+            .then(response => response.json())
+            .then(data => {
+                let video = data.videos.find(v => v.id == videoId);
+                document.getElementById("title").innerText = video.title;
+                document.getElementById("player").src = video.embed;
+            });
+    </script>
+</body>
+</html>
