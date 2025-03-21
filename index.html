@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <div class="logo">▶ StreamZeros</div>
+        <div class="logo">▶ <span style="color: orange;">StreamZeros</span></div>
         <div class="menu">☰</div>
     </header>
 
@@ -17,42 +17,33 @@
         <button id="search-btn">🔍</button>
     </div>
 
+    <!-- Latest Videos Section -->
     <section class="video-section">
-        <h2>Kategori Terbaru</h2>
-        <div class="video-list" id="latest-videos"></div>
+        <h2>Latest Videos</h2>
+        <div class="video-list" id="latest-videos">
+            <!-- 12 video akan dimuat secara dinamis di sini -->
+        </div>
+        <div class="pagination">
+            <span>[1]</span> <a href="#">[2]</a> <a href="#">[3]</a> <a href="#">Next</a>
+        </div>
     </section>
 
+    <!-- Trending Videos Section -->
     <section class="video-section">
         <h2>Trending Minggu Ini</h2>
-        <div class="video-list" id="trending-videos"></div>
+        <div class="video-list" id="trending-videos">
+            <!-- 6 video trending -->
+        </div>
     </section>
 
+    <!-- Categories Section -->
     <section class="video-section">
-        <h2>Video Terbaru</h2>
-        <div class="video-list" id="video-list">
-            <div class="video-item">
-                <img src="assets/img/placeholder.jpg" alt="Kosong">
-                <div class="video-info">
-                    <h3>Belum ada video</h3>
-                    <p class="views">Ditonton: 0 kali</p>
-                </div>
-            </div>
-
-            <div class="video-item">
-                <img src="assets/img/placeholder.jpg" alt="Kosong">
-                <div class="video-info">
-                    <h3>Belum ada video</h3>
-                    <p class="views">Ditonton: 0 kali</p>
-                </div>
-            </div>
-
-            <div class="video-item">
-                <img src="assets/img/placeholder.jpg" alt="Kosong">
-                <div class="video-info">
-                    <h3>Belum ada video</h3>
-                    <p class="views">Ditonton: 0 kali</p>
-                </div>
-            </div>
+        <h2>Categories</h2>
+        <div class="categories">
+            <span class="category">📂 Hijab</span>
+            <span class="category">📂 Viral</span>
+            <span class="category">📂 JAV</span>
+            <span class="category">📂 Indo</span>
         </div>
     </section>
 
