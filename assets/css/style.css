@@ -1,7 +1,7 @@
 body {
-    font-family: Arial, sans-serif;
     background: #111;
     color: #fff;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -9,66 +9,60 @@ body {
 header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    background: #000;
     padding: 15px;
-    font-size: 20px;
-}
-
-.logo {
-    font-weight: bold;
+    background: black;
     color: orange;
-}
-
-.menu {
-    font-size: 24px;
-    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .search-container {
-    display: flex;
-    justify-content: center;
+    text-align: center;
     padding: 10px;
 }
 
 .search-container input {
-    width: 80%;
-    padding: 10px;
-    font-size: 16px;
+    width: 70%;
+    padding: 8px;
 }
 
 .search-container button {
-    padding: 10px;
+    padding: 8px;
     background: orange;
     border: none;
     cursor: pointer;
 }
 
 .video-section {
-    padding: 15px;
+    padding: 10px;
 }
 
 .video-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 10px;
+    justify-content: center;
 }
 
 .video-card {
+    width: 45%;
     background: #222;
     padding: 10px;
-    position: relative;
+    border-radius: 5px;
+    text-align: center;
 }
 
 .video-card img {
     width: 100%;
+    border-radius: 5px;
 }
 
-.video-info {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 5px;
+.video-card h3 {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.video-card p {
     font-size: 12px;
+    color: gray;
 }
