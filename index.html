@@ -10,27 +10,27 @@
 <body>
     <header>
         <div class="logo">
-            <i class="fa fa-play-circle"></i> StreamZeros
+            <i class="fa fa-play-circle"></i> <span>StreamZeros</span>
         </div>
-        <div class="menu" onclick="toggleMenu()">☰</div>
+        <div class="menu" id="menu-btn">☰</div>
     </header>
 
-    <!-- Sidebar Menu -->
-    <div class="sidebar" id="sidebar">
+    <nav id="sidebar">
+        <div class="close-btn" id="close-btn">&times;</div>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Bokep Viral</a></li>
-            <li><a href="#">Bokep Hijab</a></li>
-            <li><a href="#">Bokep JAV</a></li>
-            <li><a href="#">Bokep Indo</a></li>
-            <li>
-                <div class="search-container">
-                    <input type="text" id="search" placeholder="Search...">
-                    <button id="search-btn"><i class="fa fa-search"></i></button>
-                </div>
-            </li>
+            <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="#"><i class="fa fa-folder"></i> Bokep Viral</a></li>
+            <li><a href="#"><i class="fa fa-folder"></i> Bokep Hijab</a></li>
+            <li><a href="#"><i class="fa fa-folder"></i> Bokep JAV</a></li>
+            <li><a href="#"><i class="fa fa-folder"></i> Bokep Indo</a></li>
         </ul>
-    </div>
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Search...">
+            <button id="search-btn"><i class="fa fa-search"></i></button>
+        </div>
+    </nav>
+
+    <div class="overlay" id="overlay"></div>
 
     <section class="video-section">
         <h2>Latest Videos</h2>
