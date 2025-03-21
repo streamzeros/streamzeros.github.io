@@ -2,30 +2,83 @@ body {
     background-color: black;
     color: white;
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #111;
+    padding: 10px 20px;
+}
+
 .logo {
     font-size: 24px;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
+
+.logo i {
+    color: orange;
+}
+
+.menu {
+    font-size: 24px;
+    cursor: pointer;
+}
+
 .search-container {
     display: flex;
     justify-content: center;
     margin: 10px;
 }
+
+.search-container input {
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    width: 60%;
+}
+
+.search-container button {
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    background: orange;
+    color: white;
+    cursor: pointer;
+}
+
+.video-section {
+    padding: 20px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
 .video-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 10px;
 }
+
 .video-item {
     background: #222;
     padding: 10px;
     border-radius: 5px;
     text-align: center;
 }
+
 .video-item img {
     width: 100%;
     border-radius: 5px;
+}
+
 .pagination {
     text-align: center;
     margin-top: 10px;
@@ -35,10 +88,11 @@ body {
     background: #222;
     color: white;
     border: none;
-    padding: 5px 10px;
-    margin: 2px;
+    padding: 8px 15px;
+    margin: 5px;
     cursor: pointer;
     border-radius: 5px;
+    font-size: 16px;
 }
 
 .page-btn.active {
