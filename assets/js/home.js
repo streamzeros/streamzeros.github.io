@@ -25,3 +25,13 @@ document.addEventListener("DOMContentLoaded", function () {
     renderVideos(latestVideos, dummyVideos, 12);
     renderVideos(trendingVideos, dummyVideos, 6);
 });
+
+// Toggle Sidebar Menu
+function toggleMenu() {
+    var sidebar = document.getElementById("sidebar");
+    if (sidebar.style.right === "0px") {
+        sidebar.style.right = "-250px";
+    } else {
+        sidebar.style.right = "0px";
+    }
+}
