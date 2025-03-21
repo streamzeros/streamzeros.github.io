@@ -5,45 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>StreamZeros</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
-        <div class="logo">▶ <span style="color: orange;">StreamZeros</span></div>
+        <div class="logo">▶ StreamZeros</div>
         <div class="menu">☰</div>
     </header>
 
     <div class="search-container">
         <input type="text" id="search" placeholder="Search...">
-        <button id="search-btn">🔍</button>
+        <button id="search-btn"><i class="fa fa-search"></i></button>
     </div>
 
-    <!-- Latest Videos Section -->
     <section class="video-section">
         <h2>Latest Videos</h2>
-        <div class="video-list" id="latest-videos">
-            <!-- 12 video akan dimuat secara dinamis di sini -->
-        </div>
+        <div class="video-list" id="latest-videos"></div>
         <div class="pagination">
-            <span>[1]</span> <a href="#">[2]</a> <a href="#">[3]</a> <a href="#">Next</a>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">Next</button>
         </div>
     </section>
 
-    <!-- Trending Videos Section -->
     <section class="video-section">
         <h2>Trending Minggu Ini</h2>
-        <div class="video-list" id="trending-videos">
-            <!-- 6 video trending -->
-        </div>
+        <div class="video-list" id="trending-videos"></div>
     </section>
 
-    <!-- Categories Section -->
     <section class="video-section">
         <h2>Categories</h2>
-        <div class="categories">
-            <span class="category">📂 Hijab</span>
-            <span class="category">📂 Viral</span>
-            <span class="category">📂 JAV</span>
-            <span class="category">📂 Indo</span>
+        <div class="category-list">
+            <div class="category-item"><i class="fa fa-folder"></i> Hijab</div>
+            <div class="category-item"><i class="fa fa-folder"></i> Viral</div>
+            <div class="category-item"><i class="fa fa-folder"></i> JAV</div>
+            <div class="category-item"><i class="fa fa-folder"></i> Indo</div>
         </div>
     </section>
 
