@@ -3,21 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dood Viral</title>
+    <title>StreamZeros</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <header>
-        <h1>Dood Viral</h1>
-        <input type="text" id="search" placeholder="Cari video...">
+        <div class="logo">▶ StreamZeros</div>
+        <div class="menu">☰</div>
     </header>
 
-    <section id="latest-category">
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Search...">
+        <button id="search-btn">🔍</button>
+    </div>
+
+    <section class="video-section">
         <h2>Kategori Terbaru</h2>
         <div class="video-list" id="latest-videos"></div>
     </section>
 
-    <section id="trending">
+    <section class="video-section">
         <h2>Trending Minggu Ini</h2>
         <div class="video-list" id="trending-videos"></div>
     </section>
