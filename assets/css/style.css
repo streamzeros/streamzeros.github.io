@@ -66,3 +66,49 @@ button {
     color: black;
     cursor: pointer;
 }
+
+.video-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 10px;
+}
+
+.video-item {
+    background: #222;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.video-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.video-item h3 {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #fff;
+}
+
+.video-item p {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.video-item a {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 5px 10px;
+    background: #ff9900;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.video-item a:hover {
+    background: #e68a00;
+}
