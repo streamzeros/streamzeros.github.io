@@ -1,36 +1,28 @@
 body {
+    font-family: Arial, sans-serif;
     background: #111;
     color: #fff;
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    text-align: center;
 }
 
 header {
+    background: #000;
+    padding: 10px;
     display: flex;
     justify-content: space-between;
-    padding: 15px;
-    background: black;
+    align-items: center;
+}
+
+.logo {
+    font-size: 20px;
     color: orange;
-    font-size: 18px;
     font-weight: bold;
 }
 
 .search-container {
-    text-align: center;
-    padding: 10px;
-}
-
-.search-container input {
-    width: 70%;
-    padding: 8px;
-}
-
-.search-container button {
-    padding: 8px;
-    background: orange;
-    border: none;
-    cursor: pointer;
+    margin: 10px;
 }
 
 .video-section {
@@ -40,16 +32,15 @@ header {
 .video-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
     justify-content: center;
 }
 
 .video-card {
-    width: 45%;
     background: #222;
     padding: 10px;
+    margin: 5px;
+    width: 150px;
     border-radius: 5px;
-    text-align: center;
 }
 
 .video-card img {
@@ -57,12 +48,21 @@ header {
     border-radius: 5px;
 }
 
-.video-card h3 {
-    font-size: 14px;
-    margin: 5px 0;
+.upload-container {
+    padding: 20px;
 }
 
-.video-card p {
-    font-size: 12px;
-    color: gray;
+input {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
+}
+
+button {
+    padding: 10px;
+    background: orange;
+    border: none;
+    color: black;
+    cursor: pointer;
 }
