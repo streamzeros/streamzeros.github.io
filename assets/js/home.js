@@ -1,4 +1,24 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const menuBtn = document.getElementById("menu-btn");
+    const closeBtn = document.getElementById("close-btn");
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("overlay");
+
+    menuBtn.addEventListener("click", () => {
+        sidebar.classList.add("active");
+        overlay.classList.add("active");
+    });
+
+    closeBtn.addEventListener("click", () => {
+        sidebar.classList.remove("active");
+        overlay.classList.remove("active");
+    });
+
+    overlay.addEventListener("click", () => {
+        sidebar.classList.remove("active");
+        overlay.classList.remove("active");
+    });
+
     const latestVideos = document.getElementById("latest-videos");
     const trendingVideos = document.getElementById("trending-videos");
 
@@ -25,13 +45,3 @@ document.addEventListener("DOMContentLoaded", function () {
     renderVideos(latestVideos, dummyVideos, 12);
     renderVideos(trendingVideos, dummyVideos, 6);
 });
-
-// Toggle Sidebar Menu
-function toggleMenu() {
-    var sidebar = document.getElementById("sidebar");
-    if (sidebar.style.right === "0px") {
-        sidebar.style.right = "-250px";
-    } else {
-        sidebar.style.right = "0px";
-    }
-}
