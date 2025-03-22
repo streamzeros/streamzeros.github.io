@@ -10,32 +10,29 @@
     <style>
         /* Sidebar */
         .sidebar {
-            position: absolute; /* Dari fixed jadi absolute */
-            top: 60px; /* Agar muncul di bawah header */
-            right: 10px;
+            position: fixed;
+            top: 0;
+            right: -260px; /* Mulai tersembunyi */
             width: 250px;
+            height: 100%;
             background: #222;
             color: white;
-            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            transition: right 0.3s ease-in-out;
             padding: 15px;
-            box-shadow: 0px 2px 5px rgba(0,0,0,0.5);
+            box-shadow: -2px 0px 5px rgba(0,0,0,0.5);
             overflow-y: auto;
             z-index: 999;
-            opacity: 0; 
-            transform: scaleY(0); 
-            transform-origin: top; 
         }
 
         .sidebar.active {
-            opacity: 1;
-            transform: scaleY(1);
+            right: 0;
         }
 
         /* Tombol Close */
         .close-btn {
             position: absolute;
             top: 10px;
-            right: 15px;
+            left: 15px;
             font-size: 20px;
             cursor: pointer;
         }
@@ -61,27 +58,31 @@
             border: none;
         }
 
-        /* Header */
-        header {
+        /* Pagination */
+        .pagination {
+            margin-top: 20px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            background: #111;
-            padding: 15px;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .page-btn {
+            background: #ff9800;
             color: white;
-            position: relative; /* Biar sidebar bisa muncul di bawahnya */
-        }
-
-        .logo {
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        .menu {
-            font-size: 24px;
+            border: none;
+            padding: 10px 16px;
             cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+            min-width: 45px;
+            text-align: center;
         }
 
+        .page-btn.active {
+            background: red;
+        }
     </style>
 </head>
 <body>
@@ -102,9 +103,25 @@
         <div class="menu-item"><i class="fa fa-folder"></i> Bokep Viral</div>
     </div>
 
+    <section class="video-section">
+        <h2>Latest Videos</h2>
+        <div class="video-list">
+            <div class="video-item"><h3>Video 1</h3><p>Ditonton: 100 kali</p></div>
+            <div class="video-item"><h3>Video 2</h3><p>Ditonton: 200 kali</p></div>
+            <div class="video-item"><h3>Video 3</h3><p>Ditonton: 300 kali</p></div>
+            <div class="video-item"><h3>Video 4</h3><p>Ditonton: 400 kali</p></div>
+        </div>
+        <div class="pagination">
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">Next</button>
+        </div>
+    </section>
+    
     <script>
         document.getElementById('menu-btn').addEventListener('click', function() {
-            document.getElementById('sidebar').classList.toggle('active');
+            document.getElementById('sidebar').classList.add('active');
         });
 
         document.getElementById('close-btn').addEventListener('click', function() {
