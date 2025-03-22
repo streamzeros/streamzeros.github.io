@@ -34,26 +34,23 @@
             background: red;
         }
 
-        /* Sidebar Menu */
+        /* Sidebar */
         .sidebar {
             position: fixed;
             top: 0;
-            left: -250px;
+            left: -260px;
             width: 250px;
             height: 100%;
             background: #222;
             color: white;
-            transition: 0.3s;
+            transition: left 0.3s ease-in-out;
             padding: 15px;
             box-shadow: 2px 0px 5px rgba(0,0,0,0.5);
+            overflow-y: auto;
         }
 
         .sidebar.active {
             left: 0;
-        }
-
-        .sidebar h3 {
-            margin-bottom: 10px;
         }
 
         .sidebar ul {
@@ -63,51 +60,37 @@
 
         .sidebar ul li {
             padding: 10px;
-            cursor: pointer;
+            border-bottom: 1px solid #333;
             display: flex;
             align-items: center;
-            gap: 10px;
         }
 
         .sidebar ul li i {
-            font-size: 18px;
+            margin-right: 10px;
         }
 
-        .sidebar ul li:hover {
-            background: #333;
-        }
-
-        .menu {
-            font-size: 24px;
-            cursor: pointer;
-            color: white;
-            position: absolute;
-            right: 15px;
-            top: 15px;
-        }
-
-        /* Search Bar */
         .search-box {
-            margin: 10px 0;
+            padding: 10px;
             display: flex;
-            gap: 5px;
+            align-items: center;
+            background: #333;
+            border-radius: 5px;
+            margin-top: 10px;
         }
 
         .search-box input {
             width: 100%;
-            padding: 8px;
+            padding: 5px;
+            background: none;
             border: none;
-            border-radius: 5px;
+            color: white;
+            outline: none;
         }
 
-        .search-box button {
-            background: #ff9800;
+        .search-box i {
             color: white;
-            border: none;
-            padding: 8px 10px;
-            cursor: pointer;
-            border-radius: 5px;
         }
+
     </style>
 </head>
 <body>
@@ -120,18 +103,17 @@
     </header>
 
     <!-- Sidebar Menu -->
-    <div class="sidebar" id="sidebar">
-        <h3>Kategori</h3>
+    <nav class="sidebar" id="sidebar">
         <ul>
-            <li><i class="fa fa-video"></i> Bokep Hijab</li>
-            <li><i class="fa fa-video"></i> Bokep Jav</li>
-            <li><i class="fa fa-video"></i> Bokep Viral</li>
+            <li><i class="fa fa-fire"></i> Bokep Hijab</li>
+            <li><i class="fa fa-film"></i> Bokep Jav</li>
+            <li><i class="fa fa-bolt"></i> Bokep Viral</li>
         </ul>
         <div class="search-box">
+            <i class="fa fa-search"></i>
             <input type="text" placeholder="Cari video...">
-            <button><i class="fa fa-search"></i></button>
         </div>
-    </div>
+    </nav>
 
     <section class="video-section">
         <h2>Latest Videos</h2>
@@ -154,8 +136,6 @@
             document.getElementById("sidebar").classList.toggle("active");
         }
     </script>
-    
-    <script src="/assets/js/home.js"></script>
 
 </body>
 </html>
