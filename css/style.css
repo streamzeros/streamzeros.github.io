@@ -112,22 +112,52 @@ header {
 
 /* Pagination */
 .pagination {
-    margin-top: 10px;
-    text-align: center; /* Posisikan ke tengah */
+    margin-top: 20px;
     display: flex;
-    justify-content: center; /* Biar tombolnya ada di tengah */
-    gap: 5px;
+    justify-content: center; /* Posisikan tombol ke tengah */
+    align-items: center; /* Pastikan sejajar vertikal */
+    flex-wrap: wrap; /* Agar tetap rapi di layar kecil */
 }
 
 .page-btn {
     background: #ff9800;
     color: white;
     border: none;
-    padding: 6px 12px;
+    padding: 10px 16px;
     cursor: pointer;
-    border-radius: 3px;
+    border-radius: 5px;
+    font-weight: bold;
+    min-width: 45px; /* Lebar minimal agar seragam */
+    text-align: center;
 }
 
 .page-btn.active {
     background: red;
+}
+
+/* Search Bar */
+.search-container {
+    display: flex;
+    margin: 15px;
+    padding: 10px;
+    background: #333;
+    border-radius: 5px;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    background: #222;
+    color: white;
+    border-radius: 5px;
+}
+
+.search-container button {
+    background: #ff9800;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
 }
