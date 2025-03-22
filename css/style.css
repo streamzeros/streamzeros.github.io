@@ -114,9 +114,10 @@ header {
 .pagination {
     margin-top: 20px;
     display: flex;
-    justify-content: center; /* Posisikan tombol ke tengah */
-    align-items: center; /* Pastikan sejajar vertikal */
-    flex-wrap: wrap; /* Agar tetap rapi di layar kecil */
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%; /* Tambahkan ini agar tombol benar-benar berada di tengah */
 }
 
 .page-btn {
@@ -127,7 +128,7 @@ header {
     cursor: pointer;
     border-radius: 5px;
     font-weight: bold;
-    min-width: 45px; /* Lebar minimal agar seragam */
+    min-width: 45px;
     text-align: center;
 }
 
