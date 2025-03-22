@@ -33,14 +33,40 @@
         .page-btn.active {
             background: red;
         }
+
+        /* Logo dan Deskripsi */
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .logo i {
+            margin-right: 8px;
+        }
+
+        .logo-desc {
+            font-size: 12px;
+            color: #ccc;
+            margin-top: 2px;
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">
-            <i class="fa fa-play-circle"></i> <span>StreamZeros</span>
-            <p style="font-size: 12px; color: #ccc; margin-top: 2px;">Nonton video streaming gratis</p>
+        <div class="logo-container">
+            <div class="logo">
+                <i class="fa fa-play-circle"></i> <span>StreamZeros</span>
+            </div>
+            <p class="logo-desc">Nonton video streaming gratis</p>
         </div>
         <div class="menu">☰</div>
     </header>
