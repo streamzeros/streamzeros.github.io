@@ -15,7 +15,7 @@
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            gap: 5px; /* Tambahkan jarak antar tombol */
+            gap: 5px;
         }
 
         .page-btn {
@@ -33,6 +33,81 @@
         .page-btn.active {
             background: red;
         }
+
+        /* Sidebar Menu */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background: #222;
+            color: white;
+            transition: 0.3s;
+            padding: 15px;
+            box-shadow: 2px 0px 5px rgba(0,0,0,0.5);
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar h3 {
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sidebar ul li i {
+            font-size: 18px;
+        }
+
+        .sidebar ul li:hover {
+            background: #333;
+        }
+
+        .menu {
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+            position: absolute;
+            right: 15px;
+            top: 15px;
+        }
+
+        /* Search Bar */
+        .search-box {
+            margin: 10px 0;
+            display: flex;
+            gap: 5px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .search-box button {
+            background: #ff9800;
+            color: white;
+            border: none;
+            padding: 8px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -41,8 +116,22 @@
         <div class="logo">
             <i class="fa fa-play-circle"></i> <span>StreamZeros</span>
         </div>
-        <div class="menu">☰</div>
+        <div class="menu" onclick="toggleMenu()">☰</div>
     </header>
+
+    <!-- Sidebar Menu -->
+    <div class="sidebar" id="sidebar">
+        <h3>Kategori</h3>
+        <ul>
+            <li><i class="fa fa-video"></i> Bokep Hijab</li>
+            <li><i class="fa fa-video"></i> Bokep Jav</li>
+            <li><i class="fa fa-video"></i> Bokep Viral</li>
+        </ul>
+        <div class="search-box">
+            <input type="text" placeholder="Cari video...">
+            <button><i class="fa fa-search"></i></button>
+        </div>
+    </div>
 
     <section class="video-section">
         <h2>Latest Videos</h2>
@@ -59,6 +148,12 @@
             <button class="page-btn">Next</button>
         </div>
     </section>
+    
+    <script>
+        function toggleMenu() {
+            document.getElementById("sidebar").classList.toggle("active");
+        }
+    </script>
     
     <script src="/assets/js/home.js"></script>
 
