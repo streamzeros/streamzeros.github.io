@@ -113,6 +113,10 @@ header {
 /* Pagination */
 .pagination {
     margin-top: 10px;
+    text-align: center; /* Posisikan ke tengah */
+    display: flex;
+    justify-content: center; /* Biar tombolnya ada di tengah */
+    gap: 5px;
 }
 
 .page-btn {
