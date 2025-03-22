@@ -110,31 +110,6 @@ header {
     border-radius: 5px;
 }
 
-/* Pagination */
-.pagination {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%; /* Tambahkan ini agar tombol benar-benar berada di tengah */
-}
-
-.page-btn {
-    background: #ff9800;
-    color: white;
-    border: none;
-    padding: 10px 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-weight: bold;
-    min-width: 45px;
-    text-align: center;
-}
-
-.page-btn.active {
-    background: red;
-}
 
 /* Search Bar */
 .search-container {
