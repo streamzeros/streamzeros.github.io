@@ -12,27 +12,27 @@
         .sidebar {
             position: fixed;
             top: 0;
-            left: -260px; /* Mulai tersembunyi */
+            right: -260px; /* Mulai tersembunyi */
             width: 250px;
             height: 100%;
             background: #222;
             color: white;
-            transition: left 0.3s ease-in-out;
+            transition: right 0.3s ease-in-out;
             padding: 15px;
-            box-shadow: 2px 0px 5px rgba(0,0,0,0.5);
+            box-shadow: -2px 0px 5px rgba(0,0,0,0.5);
             overflow-y: auto;
             z-index: 999;
         }
 
         .sidebar.active {
-            left: 0;
+            right: 0;
         }
 
         /* Tombol Close */
         .close-btn {
             position: absolute;
             top: 10px;
-            right: 15px;
+            left: 15px;
             font-size: 20px;
             cursor: pointer;
         }
