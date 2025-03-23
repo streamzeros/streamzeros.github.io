@@ -16,32 +16,25 @@
         <div class="menu" id="menu-btn">☰</div>
     </header>
 
-    <!-- Sidebar Menu -->
-    <div id="sidebar">
-        <div class="close-btn" id="close-btn">&times;</div>
-        <ul>
-            <li><a href="#"><i class="fa fa-video"></i> Bokep Hijab</a></li>
-            <li><a href="#"><i class="fa fa-video"></i> Bokep Indo</a></li>
-            <li><a href="#"><i class="fa fa-video"></i> Bokep Jav</a></li>
-        </ul>
-
-        <!-- Search Bar -->
-        <div class="search-container">
-            <input type="text" placeholder="Cari video...">
-            <button><i class="fa fa-search"></i></button>
-        </div>
-    </div>
-
-    <!-- Overlay -->
-    <div class="overlay" id="overlay"></div>
-
     <section class="video-section">
         <h2>Latest Videos</h2>
         <div class="video-list">
-            <div class="video-item"><h3>Video 1</h3><p>Ditonton: 100 kali</p></div>
-            <div class="video-item"><h3>Video 2</h3><p>Ditonton: 200 kali</p></div>
-            <div class="video-item"><h3>Video 3</h3><p>Ditonton: 300 kali</p></div>
-            <div class="video-item"><h3>Video 4</h3><p>Ditonton: 400 kali</p></div>
+            <div class="video-item">
+                <div class="video-thumbnail"></div>
+                <h3>Video 1</h3>
+            </div>
+            <div class="video-item">
+                <div class="video-thumbnail"></div>
+                <h3>Video 2</h3>
+            </div>
+            <div class="video-item">
+                <div class="video-thumbnail"></div>
+                <h3>Video 3</h3>
+            </div>
+            <div class="video-item">
+                <div class="video-thumbnail"></div>
+                <h3>Video 4</h3>
+            </div>
         </div>
         <div class="pagination">
             <button class="page-btn active">1</button>
@@ -50,23 +43,6 @@
             <button class="page-btn">Next</button>
         </div>
     </section>
-
-    <script>
-        document.getElementById("menu-btn").addEventListener("click", function() {
-            document.getElementById("sidebar").style.left = "0";
-            document.getElementById("overlay").style.display = "block";
-        });
-
-        document.getElementById("close-btn").addEventListener("click", function() {
-            document.getElementById("sidebar").style.left = "-250px";
-            document.getElementById("overlay").style.display = "none";
-        });
-
-        document.getElementById("overlay").addEventListener("click", function() {
-            document.getElementById("sidebar").style.left = "-250px";
-            document.getElementById("overlay").style.display = "none";
-        });
-    </script>
 
 </body>
 </html>
