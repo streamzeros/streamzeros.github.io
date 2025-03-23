@@ -16,6 +16,11 @@
         <div class="menu" id="menu-btn">☰</div>
     </header>
 
+    <nav class="sidebar" id="sidebar">
+        <h3>Menu</h3>
+        <p>Konten menu di sini</p>
+    </nav>
+
     <section class="video-section">
         <h2>Latest Videos</h2>
         <div class="video-list">
@@ -43,6 +48,12 @@
             <button class="page-btn">Next</button>
         </div>
     </section>
+
+    <script>
+        document.getElementById("menu-btn").addEventListener("click", function() {
+            document.getElementById("sidebar").classList.toggle("active");
+        });
+    </script>
 
 </body>
 </html>
