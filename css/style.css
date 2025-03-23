@@ -103,7 +103,7 @@ header {
 /* Grid Video */
 .video-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Lebih besar dari sebelumnya */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Lebih besar */
     gap: 15px;
     margin-top: 10px;
 }
@@ -111,14 +111,33 @@ header {
 /* Kotak Video */
 .video-item {
     background: #333;
-    padding: 15px;
     border-radius: 5px;
-    min-height: 280px; /* Tinggi diperbesar */
-    aspect-ratio: 16/9; /* Supaya kotak tetap proporsional */
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 16/9; /* Biar tetap proporsional */
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-end; /* Title di bawah */
+}
+
+/* Gambar Thumbnail (Kalau pakai gambar) */
+.video-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Title Video */
+.video-item h3 {
+    position: relative;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    margin: 0;
+    padding: 10px;
+    font-size: 14px;
     text-align: center;
 }
 
