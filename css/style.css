@@ -113,16 +113,19 @@ header {
     padding: 10px;
     border-radius: 5px;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
+    height: 80px; /* Sesuaikan tinggi kotak */
 }
 
 .video-item h3 {
-    font-size: 14px; /* Ukuran lebih kecil */
-    margin-top: 8px; /* Jarak dari kotak */
+    font-size: 12px; /* Lebih kecil */
+    margin-top: 5px;
     text-align: center;
+    position: absolute;
+    bottom: -20px; /* Geser ke bawah */
+    width: 100%;
 }
 
 /* Search Bar */
