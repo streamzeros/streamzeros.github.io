@@ -1,10 +1,9 @@
-/* Reset */
+/* Ubah background menjadi hitam */
 body {
     background: #000;
-    color: #fff;
-    font-family: Arial, sans-serif;
+    color: white;
     margin: 0;
-    padding: 0;
+    font-family: Arial, sans-serif;
 }
 
 /* Header */
@@ -12,16 +11,31 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #111;
-    padding: 10px 20px;
+    background: #222;
+    color: white;
+    padding: 15px;
 }
 
+/* Logo */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.logo i {
+    font-size: 32px;
+    margin-right: 8px;
+}
+
+/* Menu Hamburger */
 .menu {
     font-size: 24px;
     cursor: pointer;
 }
 
-/* Sidebar */
+/* Sidebar Menu */
 #sidebar {
     position: fixed;
     top: 0;
@@ -30,18 +44,20 @@ header {
     height: 100%;
     background: #222;
     transition: left 0.3s ease-in-out;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(255, 255, 255, 0.1);
-    z-index: 1001;
+    padding-top: 20px;
+    z-index: 1000;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
 }
 
+/* Sidebar List */
 #sidebar ul {
     list-style: none;
     padding: 0;
 }
 
 #sidebar ul li {
-    margin: 10px 0;
+    padding: 12px;
+    border-bottom: 1px solid #444;
 }
 
 #sidebar ul li a {
@@ -53,89 +69,100 @@ header {
 
 #sidebar ul li a i {
     margin-right: 10px;
+    font-size: 18px;
 }
 
+/* Tombol Close */
 .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px; /* Geser ke kanan */
     font-size: 24px;
+    color: white;
     cursor: pointer;
-    text-align: right;
 }
 
 /* Overlay */
 .overlay {
-    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-}
-
-/* Search Bar */
-.search-container {
-    margin-top: 20px;
-    display: flex;
-}
-
-.search-container input {
-    width: 100%;
-    padding: 8px;
-    border: none;
-    border-radius: 3px 0 0 3px;
-    outline: none;
-}
-
-.search-container button {
-    padding: 8px;
-    background: #ff9800;
-    border: none;
-    border-radius: 0 3px 3px 0;
-    cursor: pointer;
+    display: none;
+    z-index: 900;
 }
 
 /* Video Section */
 .video-section {
-    padding: 20px;
+    padding: 10px;
+    margin-top: -10px;
 }
 
+/* Grid Video */
 .video-list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-top: 5px;
 }
 
 .video-item {
     background: #333;
     padding: 10px;
     border-radius: 5px;
-    text-align: center;
 }
 
-.video-item h3 {
-    font-size: 12px;
-    margin-top: 5px;
+/* Search Bar */
+.search-container {
+    display: flex;
+    margin: 15px;
+    padding: 10px;
+    background: #333;
+    border-radius: 5px;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    background: #222;
+    color: white;
+    border-radius: 5px;
+}
+
+.search-container button {
+    background: #ff9800;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
 /* Pagination */
 .pagination {
+    margin-top: 20px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     gap: 5px;
-    margin-top: 20px;
 }
 
 .page-btn {
-    padding: 5px 10px;
+    background: #ff9800;
+    color: white;
     border: none;
-    border-radius: 5px;
+    padding: 10px 16px;
     cursor: pointer;
-    background: orange;
-    color: black;
+    border-radius: 5px;
+    font-weight: bold;
+    min-width: 45px;
+    text-align: center;
 }
 
 .page-btn.active {
     background: red;
-    color: white;
 }
