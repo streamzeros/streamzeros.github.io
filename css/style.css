@@ -110,7 +110,6 @@ header {
     border-radius: 5px;
 }
 
-
 /* Search Bar */
 .search-container {
     display: flex;
@@ -136,4 +135,80 @@ header {
     padding: 8px 12px;
     cursor: pointer;
     border-radius: 5px;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -260px; /* Mulai tersembunyi */
+    width: 250px;
+    height: 100%;
+    background: #222;
+    color: white;
+    transition: right 0.3s ease-in-out;
+    padding: 15px;
+    box-shadow: -2px 0px 5px rgba(0,0,0,0.5);
+    overflow-y: auto;
+    z-index: 999;
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+/* Tombol Close */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Menu Items */
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #444;
+    cursor: pointer;
+}
+
+.menu-item i {
+    margin-right: 10px;
+}
+
+.search-box {
+    margin: 10px;
+    padding: 8px;
+    width: calc(100% - 20px);
+    border-radius: 5px;
+    border: none;
+}
+
+/* Pagination */
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.page-btn {
+    background: #ff9800;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    min-width: 45px;
+    text-align: center;
+}
+
+.page-btn.active {
+    background: red;
 }
