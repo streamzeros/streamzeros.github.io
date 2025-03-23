@@ -74,10 +74,11 @@ header {
 
 /* Tombol Close */
 .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px; /* Geser ke kanan */
     font-size: 24px;
     color: white;
-    text-align: right;
-    padding: 10px 20px;
     cursor: pointer;
 }
 
