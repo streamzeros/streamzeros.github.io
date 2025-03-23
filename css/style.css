@@ -103,15 +103,23 @@ header {
 /* Grid Video */
 .video-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
-    margin-top: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Lebih besar dari sebelumnya */
+    gap: 15px;
+    margin-top: 10px;
 }
 
+/* Kotak Video */
 .video-item {
     background: #333;
-    padding: 10px;
+    padding: 15px;
     border-radius: 5px;
+    min-height: 280px; /* Tinggi diperbesar */
+    aspect-ratio: 16/9; /* Supaya kotak tetap proporsional */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 /* Search Bar */
