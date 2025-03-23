@@ -103,8 +103,8 @@ header {
 /* Grid Video */
 .video-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Lebih besar */
-    gap: 15px;
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom per baris */
+    gap: 10px;
     margin-top: 10px;
 }
 
@@ -114,13 +114,13 @@ header {
     border-radius: 5px;
     overflow: hidden;
     position: relative;
-    aspect-ratio: 16/9; /* Biar tetap proporsional */
+    aspect-ratio: 2/3; /* Kotak dengan rasio 2:3 */
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Title di bawah */
+    justify-content: flex-end; /* Biar title di bawah */
 }
 
-/* Gambar Thumbnail (Kalau pakai gambar) */
+/* Gambar Thumbnail */
 .video-item img {
     width: 100%;
     height: 100%;
@@ -130,15 +130,14 @@ header {
     left: 0;
 }
 
-/* Title Video */
-.video-item h3 {
+/* Container Text */
+.video-info {
     position: relative;
     background: rgba(0, 0, 0, 0.7);
     color: white;
-    margin: 0;
-    padding: 10px;
-    font-size: 14px;
+    padding: 8px;
     text-align: center;
+    font-size: 14px;
 }
 
 /* Search Bar */
