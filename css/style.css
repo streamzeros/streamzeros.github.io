@@ -103,8 +103,8 @@ header {
 /* Grid Video */
 .video-list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 kolom per baris */
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+    gap: 15px; /* Tambah jarak antar kotak */
     margin-top: 10px;
 }
 
@@ -135,9 +135,9 @@ header {
     position: relative;
     background: rgba(0, 0, 0, 0.7);
     color: white;
-    padding: 8px;
+    padding: 5px; /* Kurangi padding */
     text-align: center;
-    font-size: 14px;
+    font-size: 12px; /* Kecilkan font */
 }
 
 /* Search Bar */
