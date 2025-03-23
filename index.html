@@ -20,17 +20,17 @@
     <div id="sidebar">
         <div class="close-btn" id="close-btn">&times;</div>
         <ul>
-        	<li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-            <li class="has-submenu">
-                <a href="#"><i class="fa fa-folder"></i> Kategori ▼</a>
-                <ul class="submenu">
+            <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+            <li class="dropdown">
+                <a href="#"><i class="fa fa-folder"></i> Kategori <i class="fa fa-caret-down"></i></a>
+                <ul class="dropdown-menu">
                     <li><a href="#"><i class="fa fa-folder"></i> Bokep Hijab</a></li>
                     <li><a href="#"><i class="fa fa-folder"></i> Bokep Indo</a></li>
                     <li><a href="#"><i class="fa fa-folder"></i> Bokep Jav</a></li>
                 </ul>
             </li>
         </ul>
-
+        
         <!-- Search Bar -->
         <div class="search-container">
             <input type="text" placeholder="Cari video...">
@@ -112,7 +112,25 @@
             document.getElementById("sidebar").style.left = "-250px";
             document.getElementById("overlay").style.display = "none";
         });
+
+        // Toggle dropdown menu
+        document.querySelector(".dropdown > a").addEventListener("click", function(e) {
+            e.preventDefault();
+            this.parentElement.classList.toggle("active");
+        });
     </script>
+
+    <style>
+        /* Tambahan CSS untuk dropdown menu */
+        .dropdown-menu {
+            display: none;
+            padding-left: 20px;
+        }
+
+        .dropdown.active .dropdown-menu {
+            display: block;
+        }
+    </style>
 
 </body>
 </html>
