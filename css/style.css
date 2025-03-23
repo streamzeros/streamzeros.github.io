@@ -112,6 +112,17 @@ header {
     background: #333;
     padding: 10px;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.video-item h3 {
+    font-size: 14px; /* Ukuran lebih kecil */
+    margin-top: 8px; /* Jarak dari kotak */
+    text-align: center;
 }
 
 /* Search Bar */
