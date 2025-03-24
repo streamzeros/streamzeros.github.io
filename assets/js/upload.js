@@ -1,46 +1,29 @@
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("upload.js berhasil dimuat!");
-    
-    const uploadBtn = document.getElementById("upload-btn");
-    
-    if (uploadBtn) {
-        console.log("Tombol upload ditemukan!");
-        
-        uploadBtn.addEventListener("click", function () {
-            console.log("Tombol upload diklik!");
+document.getElementById("upload-btn").addEventListener("click", function () {
+    let title = document.getElementById("video-title").value;
+    let url = document.getElementById("video-url").value;
+    let thumbnail = document.getElementById("video-thumbnail").value;
 
-            // Ambil nilai dari input
-            const title = document.getElementById("video-title").value.trim();
-            const url = document.getElementById("video-url").value.trim();
-            const thumbnail = document.getElementById("video-thumbnail").value.trim();
-
-            // Validasi input
-            if (title === "" || url === "" || thumbnail === "") {
-                alert("Semua field harus diisi!");
-                return;
-            }
-
-            // Buat objek video baru
-            const newVideo = {
-                id: Date.now().toString(),
-                title: title,
-                url: url,
-                thumbnail: thumbnail,
-                views: 0,
-                date: new Date().toISOString()
-            };
-
-            console.log("Data video:", newVideo);
-
-            // Simpan ke localStorage sementara (nanti bisa pakai API)
-            let videos = JSON.parse(localStorage.getItem("videos")) || [];
-            videos.push(newVideo);
-            localStorage.setItem("videos", JSON.stringify(videos));
-
-            alert("Video berhasil diupload!");
-            window.location.href = "index.html"; // Redirect ke beranda
-        });
-    } else {
-        console.error("Tombol upload TIDAK ditemukan!");
+    if (!title || !url || !thumbnail) {
+        alert("Semua kolom harus diisi!");
+        return;
     }
+
+    let newVideo = { title, url, thumbnail };
+
+    // Fetch data dari /data/videos.json lalu update
+    fetch("/data/videos.json")
+        .then(response => response.json())
+        .then(data => {
+            data.unshift(newVideo); // Tambahkan video baru di awal
+            return fetch("/data/videos.json", {
+                method: "PUT",  // ⚠ GitHub Pages tidak mendukung PUT
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+        })
+        .then(() => {
+            alert("Video berhasil di-upload!");
+            window.location.href = "index.html"; // Redirect ke home
+        })
+        .catch(error => console.error("Gagal menyimpan video!", error));
 });
