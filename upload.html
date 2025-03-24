@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Video - StreamZeros</title>
+    <title>Tambah Video - StreamZeros</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -15,18 +15,18 @@
     </header>
 
     <section class="upload-section">
-        <h2>Upload Video</h2>
+        <h2>Tambah Video</h2>
         <form id="uploadForm">
-            <label for="videoFile">Pilih Video:</label>
-            <input type="file" id="videoFile" accept="video/*" required>
-
-            <label for="thumbnailFile">Pilih Thumbnail:</label>
-            <input type="file" id="thumbnailFile" accept="image/*" required>
-
             <label for="title">Judul Video:</label>
             <input type="text" id="title" placeholder="Masukkan judul video" required>
 
-            <button type="submit">Upload</button>
+            <label for="videoUrl">URL Video:</label>
+            <input type="url" id="videoUrl" placeholder="https://doodstream.com/xyz" required>
+
+            <label for="thumbnailUrl">URL Thumbnail (opsional):</label>
+            <input type="url" id="thumbnailUrl" placeholder="https://img.com/thumbnail.jpg">
+
+            <button type="submit">Tambah</button>
         </form>
 
         <div id="uploadStatus"></div>
