@@ -191,3 +191,12 @@ header {
     font-size: 14px;
     margin-top: 20px;
 }
+
+.dropdown-menu {
+    display: none;
+    padding-left: 20px;
+}
+
+.dropdown.active .dropdown-menu {
+    display: block;
+}
