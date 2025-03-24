@@ -46,24 +46,7 @@
     <!-- Latest Videos -->
     <section class="video-section">
         <h2>Latest Videos</h2>
-        <div class="video-list">
-            <div class="video-item">
-                <img src="thumbnail1.jpg" alt="Video 1">
-                <h5>Video 1</h5>
-            </div>
-            <div class="video-item">
-                <img src="thumbnail2.jpg" alt="Video 2">
-                <h5>Video 2</h5>
-            </div>
-            <div class="video-item">
-                <img src="thumbnail3.jpg" alt="Video 3">
-                <h5>Video 3</h5>
-            </div>
-            <div class="video-item">
-                <img src="thumbnail4.jpg" alt="Video 4">
-                <h5>Video 4</h5>
-            </div>
-        </div>
+        <div class="video-list"></div> <!-- Video akan dimuat di sini -->
         <div class="pagination">
             <button class="page-btn active">1</button>
             <button class="page-btn">2</button>
@@ -75,24 +58,7 @@
     <!-- Trending Minggu Ini -->
     <section class="video-section">
         <h2>Trending Minggu Ini</h2>
-        <div class="video-list">
-            <div class="video-item">
-                <img src="trending1.jpg" alt="Trending 1">
-                <h5>Trending 1</h5>
-            </div>
-            <div class="video-item">
-                <img src="trending2.jpg" alt="Trending 2">
-                <h5>Trending 2</h5>
-            </div>
-            <div class="video-item">
-                <img src="trending3.jpg" alt="Trending 3">
-                <h5>Trending 3</h5>
-            </div>
-            <div class="video-item">
-                <img src="trending4.jpg" alt="Trending 4">
-                <h5>Trending 4</h5>
-            </div>
-        </div>
+        <div class="video-list"></div> <!-- Bisa dipisah kalau mau beda kategori -->
     </section>
     
     <footer class="footer">
@@ -119,6 +85,28 @@
         document.querySelector(".dropdown > a").addEventListener("click", function(e) {
             e.preventDefault();
             this.parentElement.classList.toggle("active");
+        });
+
+        // Load videos from JSON
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("/data/videos.json")
+                .then(response => response.json())
+                .then(videos => {
+                    let videoList = document.querySelector(".video-section .video-list");
+                    videoList.innerHTML = ""; // Bersihkan dulu
+
+                    videos.forEach(video => {
+                        let videoItem = `
+                            <div class="video-item">
+                                <img src="${video.thumbnail}" alt="${video.title}">
+                                <h5>${video.title}</h5>
+                                <iframe src="${video.url}" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        `;
+                        videoList.innerHTML += videoItem;
+                    });
+                })
+                .catch(error => console.error("Gagal memuat video!", error));
         });
     </script>
 
