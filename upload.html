@@ -3,40 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Video - StreamZeros</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <title>Upload Video</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #111; color: #fff; text-align: center; padding: 20px; }
+        input, button { padding: 10px; width: 80%; margin: 5px; }
+        button { background: orange; border: none; cursor: pointer; }
+    </style>
 </head>
 <body>
+    <h2>Upload Video</h2>
+    <input type="text" id="title" placeholder="Judul Video">
+    <input type="text" id="embed" placeholder="Link Embed (Google Drive / Lulu Stream)">
+    <input type="text" id="thumbnail" placeholder="Link Thumbnail">
+    <button onclick="uploadVideo()">Upload</button>
+    
+    <script>
+        function uploadVideo() {
+            let video = {
+                title: document.getElementById("title").value,
+                embed: document.getElementById("embed").value,
+                thumbnail: document.getElementById("thumbnail").value,
+                views: 0,
+                date: new Date().toISOString()
+            };
 
-    <header>
-        <div class="logo">
-            <i class="fa fa-play-circle"></i> <span>StreamZeros</span>
-        </div>
-    </header>
-
-    <section class="upload-section">
-        <h2>Tambah Video</h2>
-        <form id="uploadForm">
-            <label for="title">Judul Video:</label>
-            <input type="text" id="title" placeholder="Masukkan judul video" required>
-
-            <label for="videoUrl">URL Video:</label>
-            <input type="url" id="videoUrl" placeholder="https://doodstream.com/xyz" required>
-
-            <label for="thumbnailUrl">URL Thumbnail (opsional):</label>
-            <input type="url" id="thumbnailUrl" placeholder="https://img.com/thumbnail.jpg">
-
-            <button type="submit">Tambah</button>
-        </form>
-
-        <div id="uploadStatus"></div>
-    </section>
-
-    <footer class="footer">
-        <p>© StreamZeros | All rights reserved.</p>
-    </footer>
-
-    <script src="/assets/js/upload.js"></script>
-
+            fetch('https://api.npoint.io/your-json-id', { // Ganti dengan endpoint JSON
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(video)
+            }).then(response => response.json())
+              .then(data => alert("Video berhasil diupload!"))
+              .catch(error => console.error("Gagal upload!", error));
+        }
+    </script>
 </body>
 </html>
