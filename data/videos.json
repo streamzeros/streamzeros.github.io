@@ -1,12 +1,22 @@
-[
+{
+  "videos": [
     {
-        "title": "Video 1",
-        "url": "https://example.com/embed/video1",
-        "thumbnail": "https://example.com/thumb1.jpg"
+      "id": "1",
+      "title": "Video Contoh 1",
+      "embed": "https://drive.google.com/embed/video1",
+      "thumbnail": "https://example.com/thumb1.jpg",
+      "category": "Film",
+      "views": 100,
+      "date": "2025-03-20"
     },
     {
-        "title": "Video 2",
-        "url": "https://example.com/embed/video2",
-        "thumbnail": "https://example.com/thumb2.jpg"
+      "id": "2",
+      "title": "Video Contoh 2",
+      "embed": "https://lulustream.com/embed/video2",
+      "thumbnail": "https://example.com/thumb2.jpg",
+      "category": "Series",
+      "views": 150,
+      "date": "2025-03-19"
     }
-]
+  ]
+}
