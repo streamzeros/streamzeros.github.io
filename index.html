@@ -1,124 +1,135 @@
-<!DOCTYPE html>  <html lang="id">  
-<head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">  
-    <title>StreamZeros</title>  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">  
-    <link rel="stylesheet" href="/css/style.css">  
-</head>  
-<body>  <header>  
-    <div class="logo">  
-        <i class="fa fa-play-circle"></i> <span>StreamZeros</span>  
-    </div>  
-    <div class="menu" id="menu-btn">☰</div>  
-</header>  
-  
-<!-- Sidebar Menu -->  
-<div id="sidebar">  
-    <div class="close-btn" id="close-btn">&times;</div>  
-    <ul>  
-        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>  
-        <li class="dropdown">  
-            <a href="#"><i class="fa fa-folder"></i> Kategori   <i class="fa fa-caret-down"></i></a>  
-            <ul class="dropdown-menu">  
-                <li><a href="#"><i class="fa fa-video"></i> Bokep Hijab</a></li>  
-                <li><a href="#"><i class="fa fa-video"></i> Bokep Indo</a></li>  
-                <li><a href="#"><i class="fa fa-video"></i> Bokep Jav</a></li>  
-            </ul>  
-        </li>  
-        <li><a href="#"><i class="fa-brands fa-telegram"></i> Channel Telegram</a></li>  
-        <li><a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a></li>  
-    </ul>  
-      
-    <!-- Search Bar -->  
-    <div class="search-container">  
-        <input type="text" placeholder="Cari video...">  
-        <button><i class="fa fa-search"></i></button>  
-    </div>  
-</div>  
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>StreamZeros</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <i class="fa fa-play-circle"></i> <span>StreamZeros</span>
+    </div>
+    <div class="menu" id="menu-btn">☰</div>
+</header>
 
-<!-- Overlay -->  
-<div class="overlay" id="overlay"></div>  
+<!-- Sidebar Menu -->
+<div id="sidebar">
+    <div class="close-btn" id="close-btn">&times;</div>
+    <ul>
+        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+        <li class="dropdown">
+            <a href="#"><i class="fa fa-folder"></i> Kategori <i class="fa fa-caret-down"></i></a>
+            <ul class="dropdown-menu">
+                <li><a href="#"><i class="fa fa-video"></i> Bokep Hijab</a></li>
+                <li><a href="#"><i class="fa fa-video"></i> Bokep Indo</a></li>
+                <li><a href="#"><i class="fa fa-video"></i> Bokep Jav</a></li>
+            </ul>
+        </li>
+        <li><a href="#"><i class="fa-brands fa-telegram"></i> Channel Telegram</a></li>
+        <li><a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
+    </ul>
 
-<!-- Latest Videos -->  
-<section class="video-section">  
-    <h2>Latest Videos</h2>  
-    <div class="video-list">  
-        <div class="video-item">  
-            <img src="thumbnail1.jpg" alt="Video 1">  
-            <h5>Video 1</h5>  
-        </div>  
-        <div class="video-item">  
-            <img src="thumbnail2.jpg" alt="Video 2">  
-            <h5>Video 2</h5>  
-        </div>  
-        <div class="video-item">  
-            <img src="thumbnail3.jpg" alt="Video 3">  
-            <h5>Video 3</h5>  
-        </div>  
-        <div class="video-item">  
-            <img src="thumbnail4.jpg" alt="Video 4">  
-            <h5>Video 4</h5>  
-        </div>  
-    </div>  
-    <div class="pagination">  
-        <button class="page-btn active">1</button>  
-        <button class="page-btn">2</button>  
-        <button class="page-btn">3</button>  
-        <button class="page-btn">Next</button>  
-    </div>  
-</section>  
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" placeholder="Cari video...">
+        <button><i class="fa fa-search"></i></button>
+    </div>
+</div>
 
-<!-- Trending Minggu Ini -->  
-<section class="video-section">  
-    <h2>Trending Minggu Ini</h2>  
-    <div class="video-list">  
-        <div class="video-item">  
-            <img src="trending1.jpg" alt="Trending 1">  
-            <h5>Trending 1</h5>  
-        </div>  
-        <div class="video-item">  
-            <img src="trending2.jpg" alt="Trending 2">  
-            <h5>Trending 2</h5>  
-        </div>  
-        <div class="video-item">  
-            <img src="trending3.jpg" alt="Trending 3">  
-            <h5>Trending 3</h5>  
-        </div>  
-        <div class="video-item">  
-            <img src="trending4.jpg" alt="Trending 4">  
-            <h5>Trending 4</h5>  
-        </div>  
-    </div>  
-</section>  
-  
-<footer class="footer">  
-    <p>© StreamZeros | All rights reserved.</p>  
-</footer>  
+<!-- Overlay -->
+<div class="overlay" id="overlay"></div>
 
-<script>  
-    document.getElementById("menu-btn").addEventListener("click", function() {  
-        document.getElementById("sidebar").style.left = "0";  
-        document.getElementById("overlay").style.display = "block";  
-    });  
+<!-- Latest Videos -->
+<section class="video-section">
+    <h2>Latest Videos</h2>
+    <div class="video-list" id="video-container"></div>
+    <div class="pagination">
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <button class="page-btn">Next</button>
+    </div>
+</section>
 
-    document.getElementById("close-btn").addEventListener("click", function() {  
-        document.getElementById("sidebar").style.left = "-250px";  
-        document.getElementById("overlay").style.display = "none";  
-    });  
+<!-- Trending Minggu Ini -->
+<section class="video-section">
+    <h2>Trending Minggu Ini</h2>
+    <div class="video-list">
+        <div class="video-item">
+            <img src="trending1.jpg" alt="Trending 1">
+            <h5>Trending 1</h5>
+        </div>
+        <div class="video-item">
+            <img src="trending2.jpg" alt="Trending 2">
+            <h5>Trending 2</h5>
+        </div>
+        <div class="video-item">
+            <img src="trending3.jpg" alt="Trending 3">
+            <h5>Trending 3</h5>
+        </div>
+        <div class="video-item">
+            <img src="trending4.jpg" alt="Trending 4">
+            <h5>Trending 4</h5>
+        </div>
+    </div>
+</section>
 
-    document.getElementById("overlay").addEventListener("click", function() {  
-        document.getElementById("sidebar").style.left = "-250px";  
-        document.getElementById("overlay").style.display = "none";  
-    });  
+<footer class="footer">
+    <p>© StreamZeros | All rights reserved.</p>
+</footer>
 
-    // Toggle dropdown menu  
-    document.querySelector(".dropdown > a").addEventListener("click", function(e) {  
-        e.preventDefault();  
-        this.parentElement.classList.toggle("active");  
-    });  
+<script>
+document.getElementById("menu-btn").addEventListener("click", function() {
+    document.getElementById("sidebar").style.left = "0";
+    document.getElementById("overlay").style.display = "block";
+});
+
+document.getElementById("close-btn").addEventListener("click", function() {
+    document.getElementById("sidebar").style.left = "-250px";
+    document.getElementById("overlay").style.display = "none";
+});
+
+document.getElementById("overlay").addEventListener("click", function() {
+    document.getElementById("sidebar").style.left = "-250px";
+    document.getElementById("overlay").style.display = "none";
+});
+
+// Toggle dropdown menu
+document.querySelector(".dropdown > a").addEventListener("click", function(e) {
+    e.preventDefault();
+    this.parentElement.classList.toggle("active");
+});
+
+// Load Videos from JSON
+async function loadVideos() {
+    try {
+        let response = await fetch('/data/videos.json');
+        let videos = await response.json();
+
+        let container = document.getElementById("video-container");
+        container.innerHTML = "";
+
+        videos.forEach(video => {
+            let videoElement = `
+                <div class="video-item">
+                    <a href="${video.embed}" target="_blank">
+                        <img src="${video.thumbnail}" alt="${video.judul}">
+                    </a>
+                    <h5>${video.judul}</h5>
+                </div>
+            `;
+            container.innerHTML += videoElement;
+        });
+    } catch (error) {
+        console.error("Gagal memuat video:", error);
+    }
+}
+
+loadVideos();
 </script>
 
-</body>  
+</body>
 </html>
-
