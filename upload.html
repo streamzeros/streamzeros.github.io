@@ -5,14 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Upload Video - StreamZeros</title>
     <link rel="stylesheet" href="/css/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header {
+            background: #1f1f1f;
+            padding: 15px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .upload-section {
+            max-width: 400px;
+            margin: auto;
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #444;
+            border-radius: 4px;
+            background: #2b2b2b;
+            color: white;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #ff5722;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background: #e64a19;
+        }
+    </style>
 </head>
 <body>
 
-<header>
-    <div class="logo">
-        <i class="fa fa-play-circle"></i> <span>StreamZeros</span>
-    </div>
-</header>
+<header>StreamZeros</header>
 
 <section class="upload-section">
     <h2>Upload Video</h2>
@@ -26,34 +78,22 @@
         <label>Link Thumbnail:</label>
         <input type="url" id="thumbnail" required>
 
-        <button type="submit">Upload</button>
+        <button type="button" id="uploadBtn">Upload</button>
     </form>
 </section>
 
 <script>
-document.getElementById("uploadForm").addEventListener("submit", async function(event) {
-    event.preventDefault();
-
+document.getElementById("uploadBtn").addEventListener("click", function() {
     const judul = document.getElementById("judul").value;
     const embed = document.getElementById("embed").value;
     const thumbnail = document.getElementById("thumbnail").value;
 
-    // Ambil data JSON lama
-    let response = await fetch('/data/videos.json');
-    let videos = await response.json();
+    if (!judul || !embed || !thumbnail) {
+        alert("Harap isi semua kolom!");
+        return;
+    }
 
-    // Tambah data baru
-    videos.push({ judul, embed, thumbnail });
-
-    // Simpan kembali ke JSON
-    await fetch('/data/videos.json', {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(videos, null, 2)
-    });
-
-    alert('Video berhasil diupload!');
-    window.location.href = "/index.html";
+    alert(`Judul: ${judul}\nEmbed: ${embed}\nThumbnail: ${thumbnail}\n\n[Demo] Data tidak bisa disimpan di GitHub Pages!`);
 });
 </script>
 
