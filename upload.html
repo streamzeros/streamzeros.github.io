@@ -2,39 +2,60 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Video | Admin</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #111; color: #fff; text-align: center; padding: 20px; }
-        input, button { padding: 10px; width: 80%; margin: 5px; }
-        button { background: orange; border: none; cursor: pointer; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Upload Video - StreamZeros</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h2>Upload Video</h2>
-    <input type="text" id="title" placeholder="Judul Video">
-    <input type="text" id="embed" placeholder="Link Embed (Google Drive / Lulu Stream)">
-    <input type="text" id="thumbnail" placeholder="Link Thumbnail">
-    <button onclick="uploadVideo()">Upload</button>
-    
-    <script>
-        function uploadVideo() {
-            let video = {
-                title: document.getElementById("title").value,
-                embed: document.getElementById("embed").value,
-                thumbnail: document.getElementById("thumbnail").value,
-                views: 0,
-                date: new Date().toISOString()
-            };
 
-            fetch('https://api.npoint.io/your-json-id', { // Ganti dengan endpoint JSON
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(video)
-            }).then(response => response.json())
-              .then(data => alert("Video berhasil diupload!"))
-              .catch(error => console.error("Gagal upload!", error));
-        }
-    </script>
+<header>
+    <div class="logo">
+        <i class="fa fa-play-circle"></i> <span>StreamZeros</span>
+    </div>
+</header>
+
+<section class="upload-section">
+    <h2>Upload Video</h2>
+    <form id="uploadForm">
+        <label>Judul Video:</label>
+        <input type="text" id="judul" required>
+
+        <label>Link Embed Video:</label>
+        <input type="url" id="embed" required>
+
+        <label>Link Thumbnail:</label>
+        <input type="url" id="thumbnail" required>
+
+        <button type="submit">Upload</button>
+    </form>
+</section>
+
+<script>
+document.getElementById("uploadForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const judul = document.getElementById("judul").value;
+    const embed = document.getElementById("embed").value;
+    const thumbnail = document.getElementById("thumbnail").value;
+
+    // Ambil data JSON lama
+    let response = await fetch('/data/videos.json');
+    let videos = await response.json();
+
+    // Tambah data baru
+    videos.push({ judul, embed, thumbnail });
+
+    // Simpan kembali ke JSON
+    await fetch('/data/videos.json', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(videos, null, 2)
+    });
+
+    alert('Video berhasil diupload!');
+    window.location.href = "/index.html";
+});
+</script>
+
 </body>
 </html>
