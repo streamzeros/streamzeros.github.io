@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Upload Video - StreamZeros</title>
     <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -83,7 +84,13 @@
 </section>
 
 <script>
-document.getElementById("uploadBtn").addEventListener("click", function() {
+// Inisialisasi Supabase
+const supabaseUrl = "https://YOUR_SUPABASE_URL";
+const supabaseKey = "YOUR_SUPABASE_ANON_KEY";
+const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+// Fungsi Upload Video ke Supabase
+document.getElementById("uploadBtn").addEventListener("click", async function() {
     const judul = document.getElementById("judul").value;
     const embed = document.getElementById("embed").value;
     const thumbnail = document.getElementById("thumbnail").value;
@@ -93,7 +100,17 @@ document.getElementById("uploadBtn").addEventListener("click", function() {
         return;
     }
 
-    alert(`Judul: ${judul}\nEmbed: ${embed}\nThumbnail: ${thumbnail}\n\n[Demo] Data tidak bisa disimpan di GitHub Pages!`);
+    const { data, error } = await supabase
+        .from('videos')
+        .insert([{ title: judul, embedUrl: embed, thumbnailUrl: thumbnail }]);
+
+    if (error) {
+        console.error("Error uploading video:", error);
+        alert("Gagal mengupload video!");
+    } else {
+        alert("Video berhasil diupload!");
+        document.getElementById("uploadForm").reset();
+    }
 });
 </script>
 
