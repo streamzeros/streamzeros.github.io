@@ -84,21 +84,26 @@
 </section>
 
 <script>
-// Inisialisasi Supabase
+// Inisialisasi Supabase harus di atas sebelum digunakan
 const supabaseUrl = "https://lzdoojamlrrzglrmkgwx.supabase.co";
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx6ZG9vamFtbHJyemdscm1rZ3d4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI4ODIxMDQsImV4cCI6MjA1ODQ1ODEwNH0.-8yOSMuE3Ln0XHodanZxfJxuZkfuG81qzyy048ISlSY";
 const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
 // Fungsi Upload Video ke Supabase
 document.getElementById("uploadBtn").addEventListener("click", async function() {
-    const judul = document.getElementById("judul").value;
-    const embed = document.getElementById("embed").value;
-    const thumbnail = document.getElementById("thumbnail").value;
+    const judul = document.getElementById("judul").value.trim();
+    const embed = document.getElementById("embed").value.trim();
+    const thumbnail = document.getElementById("thumbnail").value.trim();
 
     if (!judul || !embed || !thumbnail) {
         alert("Harap isi semua kolom!");
         return;
     }
+
+    // Menampilkan loading saat upload
+    const uploadBtn = document.getElementById("uploadBtn");
+    uploadBtn.innerText = "Uploading...";
+    uploadBtn.disabled = true;
 
     const { data, error } = await supabase
         .from('videos')
@@ -111,6 +116,10 @@ document.getElementById("uploadBtn").addEventListener("click", async function() 
         alert("Video berhasil diupload!");
         document.getElementById("uploadForm").reset();
     }
+
+    // Kembalikan tombol upload ke semula
+    uploadBtn.innerText = "Upload";
+    uploadBtn.disabled = false;
 });
 </script>
 
