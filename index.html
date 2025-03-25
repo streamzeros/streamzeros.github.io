@@ -6,6 +6,7 @@
     <title>StreamZeros</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </head>
 <body>
 <header>
@@ -46,35 +47,12 @@
 <section class="video-section">
     <h2>Latest Videos</h2>
     <div class="video-list" id="video-container"></div>
-    <div class="pagination">
-        <button class="page-btn active">1</button>
-        <button class="page-btn">2</button>
-        <button class="page-btn">3</button>
-        <button class="page-btn">Next</button>
-    </div>
 </section>
 
 <!-- Trending Minggu Ini -->
 <section class="video-section">
     <h2>Trending Minggu Ini</h2>
-    <div class="video-list">
-        <div class="video-item">
-            <img src="trending1.jpg" alt="Trending 1">
-            <h5>Trending 1</h5>
-        </div>
-        <div class="video-item">
-            <img src="trending2.jpg" alt="Trending 2">
-            <h5>Trending 2</h5>
-        </div>
-        <div class="video-item">
-            <img src="trending3.jpg" alt="Trending 3">
-            <h5>Trending 3</h5>
-        </div>
-        <div class="video-item">
-            <img src="trending4.jpg" alt="Trending 4">
-            <h5>Trending 4</h5>
-        </div>
-    </div>
+    <div class="video-list" id="trending-container"></div>
 </section>
 
 <footer class="footer">
@@ -82,6 +60,7 @@
 </footer>
 
 <script>
+// Menu Toggle
 document.getElementById("menu-btn").addEventListener("click", function() {
     document.getElementById("sidebar").style.left = "0";
     document.getElementById("overlay").style.display = "block";
@@ -103,11 +82,23 @@ document.querySelector(".dropdown > a").addEventListener("click", function(e) {
     this.parentElement.classList.toggle("active");
 });
 
-// Load Videos from JSON
+// Konfigurasi Supabase
+const supabaseUrl = "https://lzdoojamlrrzglrmkgwx.supabase.co";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx6ZG9vamFtbHJyemdscm1rZ3d4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI4ODIxMDQsImV4cCI6MjA1ODQ1ODEwNH0.-8yOSMuE3Ln0XHodanZxfJxuZkfuG81qzyy048ISlSY";
+const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+// Load Latest Videos from Supabase
 async function loadVideos() {
     try {
-        let response = await fetch('/data/videos.json');
-        let videos = await response.json();
+        let { data: videos, error } = await supabase
+            .from('videos')
+            .select('*')
+            .order('created_at', { ascending: false });
+
+        if (error) {
+            console.error("Gagal mengambil video:", error);
+            return;
+        }
 
         let container = document.getElementById("video-container");
         container.innerHTML = "";
@@ -115,10 +106,10 @@ async function loadVideos() {
         videos.forEach(video => {
             let videoElement = `
                 <div class="video-item">
-                    <a href="${video.embed}" target="_blank">
-                        <img src="${video.thumbnail}" alt="${video.judul}">
+                    <a href="${video.embedUrl}" target="_blank">
+                        <img src="${video.thumbnailUrl}" alt="${video.title}">
                     </a>
-                    <h5>${video.judul}</h5>
+                    <h5>${video.title}</h5>
                 </div>
             `;
             container.innerHTML += videoElement;
@@ -128,7 +119,42 @@ async function loadVideos() {
     }
 }
 
+// Load Trending Videos (ambil 6 video paling banyak dilihat)
+async function loadTrending() {
+    try {
+        let { data: trending, error } = await supabase
+            .from('videos')
+            .select('*')
+            .order('views', { ascending: false })
+            .limit(6);
+
+        if (error) {
+            console.error("Gagal mengambil trending video:", error);
+            return;
+        }
+
+        let container = document.getElementById("trending-container");
+        container.innerHTML = "";
+
+        trending.forEach(video => {
+            let videoElement = `
+                <div class="video-item">
+                    <a href="${video.embedUrl}" target="_blank">
+                        <img src="${video.thumbnailUrl}" alt="${video.title}">
+                    </a>
+                    <h5>${video.title}</h5>
+                </div>
+            `;
+            container.innerHTML += videoElement;
+        });
+    } catch (error) {
+        console.error("Gagal memuat trending video:", error);
+    }
+}
+
+// Panggil fungsi untuk menampilkan video
 loadVideos();
+loadTrending();
 </script>
 
 </body>
