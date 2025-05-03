@@ -10,7 +10,7 @@ document.getElementById("upload-btn").addEventListener("click", function () {
 
     let newVideo = { title, url, thumbnail };
 
-    // Fetch data dari /data/videos.json lalu update
+    // Fetch data dari /data/videos.json dulu jing
     fetch("/data/videos.json")
         .then(response => response.json())
         .then(data => {
